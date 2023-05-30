@@ -3,9 +3,11 @@
                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
                  xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                  xmlns:core="clr-namespace:System;assembly=mscorlib"
                  xmlns:local="clr-namespace:DGXPopupDemo"
+                 xmlns:dgx="urn:tom-englert.de/DataGridExtensions"
                  mc:Ignorable="d"
                  Title="MainWindow"
                  Height="450"
@@ -18,11 +20,20 @@
                 <x:Type Type="local:OrderStatus" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
+        <Style x:Key="MyDataGridColumnHeader"
+               TargetType="DataGridColumnHeader"
+               BasedOn="{StaticResource MahApps.Styles.DataGridColumnHeader}">
+            <Setter Property="controls:ControlsHelper.ContentCharacterCasing"
+                    Value="Normal" />
+        </Style>
+        <Style TargetType="DataGridColumnHeader"
+               BasedOn="{StaticResource MyDataGridColumnHeader}" />
     </mah:MetroWindow.Resources>
     <Grid>
         <DataGrid Name="dataGrid"
                   ItemsSource="{Binding}"
-                  AutoGenerateColumns="False">
+                  AutoGenerateColumns="False"
+                  dgx:DataGridFilter.IsAutoFilterEnabled="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="First Name"
                                     Binding="{Binding FirstName}" />
