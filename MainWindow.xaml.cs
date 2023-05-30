@@ -30,6 +30,7 @@ namespace DGXPopupDemo
             {
                 new Customer()
                 {
+                    ID = 0,
                     FirstName = "John",
                     LastName = "Doe",
                     Email = new MailAddress("john.doe@contoso.com"),
@@ -38,6 +39,7 @@ namespace DGXPopupDemo
                 },
                 new Customer()
                 {
+                    ID = 12,
                     FirstName = "Jane",
                     LastName = "Doe",
                     Email = new MailAddress("jane.doe@contoso.com"),
@@ -46,6 +48,7 @@ namespace DGXPopupDemo
                 },
                 new Customer()
                 {
+                    ID = 23,
                     FirstName = "Max",
                     LastName = "Mustermann",
                     Email = new MailAddress("max.mustermann@contoso.com"),
@@ -54,6 +57,7 @@ namespace DGXPopupDemo
                 },
                 new Customer()
                 {
+                    ID = 34,
                     FirstName = "Jack",
                     LastName = "Black",
                     Email = new MailAddress("jack.black@contoso.com"),
