@@ -28,6 +28,9 @@
         </Style>
         <Style TargetType="DataGridColumnHeader"
                BasedOn="{StaticResource MyDataGridColumnHeader}" />
+        <ControlTemplate x:Key="MultipleChoiceFilter">
+            <dgx:MultipleChoiceFilter Filter="{Binding Path=Filter, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=dgx:DataGridFilterColumnControl}}" />
+        </ControlTemplate>
     </mah:MetroWindow.Resources>
     <Grid>
         <DataGrid Name="dataGrid"
@@ -47,7 +50,8 @@
                                         Binding="{Binding IsMember}" />
                 <DataGridComboBoxColumn Header="Order Status"
                                         SelectedItemBinding="{Binding Status}"
-                                        ItemsSource="{Binding Source={StaticResource orderStatus}}" />
+                                        ItemsSource="{Binding Source={StaticResource orderStatus}}"
+                                        dgx:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
